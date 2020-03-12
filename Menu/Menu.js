@@ -53,7 +53,7 @@ function createMenu(array) {
     if (menu.classList.contains('menu--open')){
       gsap.to(".menu", { duration: 1, x: 350 })
     } else {
-      gsap.to(".menu", { duration: 0, x: -350 })
+      gsap.to(".menu", { duration: 1, x: -350 })
     }
     
   })
