@@ -153,12 +153,11 @@ data.push({
 })
 
 // create and render articles on home page
-let indexVar = 1
-data.forEach( (content) => {
+
+data.forEach( (content, index) => {
   let newArticle = createArticle(content)
-  newArticle.id = `article-${indexVar}`
+  newArticle.id = `article-${index}`
   document.querySelector('.articles').appendChild(newArticle);
-  indexVar++
 })
 
 // Hint: You will need to use createElement more than once here!
