@@ -110,7 +110,7 @@ function createArticle(dataObject) {
 
   article.append(title, date, para_1, para_2, para_3, expandBtn)
 
-  article.classList.add('article')
+  article.classList.add('article',)
   date.classList.add('date')
   expandBtn.classList.add('expandButton')
 
@@ -119,10 +119,17 @@ function createArticle(dataObject) {
   para_1.textContent = dataObject.firstParagraph
   para_2.textContent = dataObject.secondParagraph
   para_3.textContent = dataObject.thirdParagraph
-  expandBtn.textContent = "toggle article content"
+  expandBtn.textContent = "Click to Expand"
 
   expandBtn.addEventListener('click', () => {
     article.classList.toggle('article-open')
+    if (article.classList.contains('article-open')) {
+      gsap.to(article.id, { duration: 1.5, height: 400 })
+      expandBtn.textContent = "Click to Close"
+    } else {
+      gsap.to(article.id, { duration: 1.5, height: 50 })
+      expandBtn.textContent = "Click to Expand"
+    }
   })
 
   return article
@@ -146,8 +153,12 @@ data.push({
 })
 
 // create and render articles on home page
+let indexVar = 1
 data.forEach( (content) => {
-  document.querySelector('.articles').appendChild(createArticle(content));
+  let newArticle = createArticle(content)
+  newArticle.id = `article-${indexVar}`
+  document.querySelector('.articles').appendChild(newArticle);
+  indexVar++
 })
 
 // Hint: You will need to use createElement more than once here!

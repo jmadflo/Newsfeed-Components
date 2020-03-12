@@ -50,9 +50,20 @@ function createMenu(array) {
 
   document.querySelector('.menu-button').addEventListener('click', () => {
     menu.classList.toggle('menu--open');
+    if (menu.classList.contains('menu--open')){
+      gsap.to(".menu", { duration: 1, x: 350 })
+    } else {
+      gsap.to(".menu", { duration: 0, x: -350 })
+    }
+    
   })
+
+  
 
   return menu
 }
 
 document.querySelector('.header').appendChild(createMenu(menuItems))
+
+// animate menu
+
