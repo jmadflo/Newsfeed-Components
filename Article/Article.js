@@ -124,10 +124,10 @@ function createArticle(dataObject) {
   expandBtn.addEventListener('click', () => {
     article.classList.toggle('article-open')
     if (article.classList.contains('article-open')) {
-      gsap.to(article.id, { duration: 1.5, height: 400 })
+      gsap.to(`#${article.id}`, { duration: 1.5, height: 400 })
       expandBtn.textContent = "Click to Close"
     } else {
-      gsap.to(article.id, { duration: 1.5, height: 50 })
+      gsap.to(`#${article.id}`, { duration: 1.5, height: 50 })
       expandBtn.textContent = "Click to Expand"
     }
   })
